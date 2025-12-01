@@ -203,3 +203,93 @@ header {
     height: 100%;
     object-fit: cover;
 }
+
+
+
+
+/* ===== Shopee-style mobile-first (Blue/Dark) ===== */
+:root {
+  --sp-bg: #081827;
+  --sp-card: #062232;
+  --sp-accent: #1e90ff;
+  --sp-text: #e8f6ff;
+  --sp-muted: #9fb6cb;
+  --sp-btn: #0ea5ff;
+  --sp-danger: #ff3b30;
+}
+
+body { background: linear-gradient(180deg, #eaf4ff 0%, #f4f7fb 100%); color:var(--sp-text); }
+
+/* Header compact */
+.sp-header {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:12px;
+  background: linear-gradient(90deg, #072146, #0b2a4a);
+  position:sticky;
+  top:0;
+  z-index:1200;
+}
+.sp-header .logo { height:44px; border-radius:8px; background:#fff; padding:6px; }
+.sp-header-center { flex:1; }
+.sp-header-center #searchBar, .sp-header-center #searchBarProduct {
+  width:100%;
+  padding:10px 12px;
+  border-radius:10px;
+  border:none;
+  background: rgba(255,255,255,0.06);
+  color:#fff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
+}
+.sp-header-right .header-title { text-align:right; font-weight:700; font-size:14px; line-height:1; color:#fff; letter-spacing:1px; opacity:0.95; }
+
+/* Product grid: mobile single-column like Shopee feed */
+.layout { padding:12px; grid-template-columns: 1fr; }
+.grid { display:flex; flex-direction:column; gap:14px; }
+
+.card.clickable { border-radius:12px; overflow:hidden; background:linear-gradient(180deg,var(--sp-card), #072b3b); box-shadow: 0 8px 20px rgba(6,20,30,0.3); border: 1px solid rgba(255,255,255,0.03); }
+.card .card-link { text-decoration:none; color:inherit; display:flex; gap:12px; align-items:flex-start; padding:12px; }
+.card .img-wrap { width:40%; min-width:120px; aspect-ratio:1/1; border-radius:10px; overflow:hidden; display:block; flex-shrink:0; }
+.card .img-wrap img { width:100%; height:100%; object-fit:cover; display:block; }
+.card .card-body { flex:1; display:flex; flex-direction:column; gap:8px; }
+.card .card-body h4 { font-size:16px; margin:0; color:var(--sp-text); }
+.card .card-body .small { color:var(--sp-muted); font-size:12px; }
+.card .card-body .price { color:var(--sp-btn); font-weight:700; font-size:18px; margin-top:auto; }
+
+/* make cards full-width with padding like Shopee */
+main { padding: 12px; }
+.product-main { padding:12px; }
+.product-container { display:flex; flex-direction:column; gap:12px; max-width:980px; margin:0 auto; }
+
+/* Product page gallery */
+.product-gallery { display:flex; flex-direction:column; gap:10px; align-items:center; }
+.product-main-img { width:100%; max-width:420px; aspect-ratio:1/1; background:#fff; border-radius:12px; overflow:hidden; display:flex; align-items:center; justify-content:center; }
+.product-main-img img{ width:100%; height:100%; object-fit:cover; display:block; }
+.product-thumbs { display:flex; gap:8px; overflow:auto; padding-top:6px; }
+.product-thumbs img.thumb-item { width:72px; height:72px; object-fit:cover; border-radius:8px; cursor:pointer; border:2px solid transparent; }
+.product-thumbs img.thumb-item:hover { border-color: rgba(30,144,255,0.4); }
+
+.product-info { padding:8px 2px 60px 2px; color:#073047; background:transparent; }
+.product-info h1 { font-size:20px; color:#072b3b; margin:6px 0; }
+.prod-price { font-size:22px; color:var(--sp-btn); font-weight:800; margin:8px 0; }
+.prod-desc { margin-top:10px; color:#274b66; line-height:1.5; background:#f8fcff; padding:10px; border-radius:8px; }
+
+/* Bottom fixed action bar */
+.action-bar { position:fixed; left:0; right:0; bottom:0; display:flex; gap:8px; padding:10px; background: linear-gradient(90deg, #072146, #0b2a4a); border-top:1px solid rgba(255,255,255,0.03); z-index:1400; justify-content:space-between; align-items:center; }
+.action-bar .btn { padding:10px 12px; border-radius:8px; font-weight:700; border:none; cursor:pointer; }
+.action-chat { background:transparent; color:#fff; border:1px solid rgba(255,255,255,0.06); }
+.action-cart { background:#0b5f8a; color:#fff; }
+.action-buy { background:var(--sp-btn); color:#072b3b; border-radius:10px; padding:10px 14px; font-size:16px; }
+
+/* smaller screens */
+@media(min-width:700px){
+  .grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:16px; }
+  .card .card-link { flex-direction:column; }
+  .card .img-wrap { width:100%; aspect-ratio:1/1; }
+  .product-container { flex-direction:row; gap:20px; }
+  .product-gallery { flex:1; }
+  .product-info { flex:1; padding-bottom:100px; }
+  .action-bar { max-width:980px; margin:0 auto; left:0; right:0; }
+}
+
