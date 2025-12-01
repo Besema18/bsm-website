@@ -184,3 +184,25 @@ header img.logo {
     width: 60px;
     text-align: right;
 }
+.product-card {
+    max-width: 100%;
+    width: 90%;
+    margin: auto;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+@media (max-width: 600px) {
+    .product-card {
+        padding: 10px;
+    }
+
+    .product-card img {
+        height: 180px; /* kecilkan tinggi gambar */
+        object-fit: cover;
+    }
+}
